@@ -11,8 +11,8 @@ num = randint(0,9)
 name = (names[num]) 
 
 #prints Welcome to Dream Pizza
-print ("*** Welcome to Dream Pizza ***")
+print ("*** Welcome to Dunkin Marcus ***")
 #prints "My name is" and a name from someone in the list
 print ("*** My name is", name, "***")
 #prints that he/she will be helping with the customer's order
-print ("***I will be here to help your order your delicous Dream Pizza***")
+print ("***I will be here to help your order your delicous donuts***")
