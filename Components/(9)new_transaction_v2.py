@@ -1,11 +1,11 @@
 import sys
 
-#List to store orderd pizzas 
+#List to store orderd donuts 
 order_list=[]
-#List to store pizzas prices
+#List to store donuts prices
 order_cost=[]
 
-#customer detalis dictionary
+#customer details dictionary
 customer_details = {}
 
 

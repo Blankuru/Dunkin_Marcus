@@ -1,12 +1,12 @@
-pizza_names = ['Margherita', 'Pepperoni','Hawaiian','Cheese','Italian','Veggie','Vegan','Chicken Deluxe',
+donut_names = ['Margherita', 'Pepperoni','Hawaiian','Cheese','Italian','Veggie','Vegan','Chicken Deluxe',
                 'Mega Meat Lovers','Seafood Deluxe','Apricot Chicken Deluxe','BBQ Chicken Deluxe']
 
-pizza_prices = [8.50, 8.50, 8.50, 8.50, 8.50, 8.50, 8.50, 13.50, 13.50, 13.50, 13.50, 13.50]
+donut_prices = [8.50, 8.50, 8.50, 8.50, 8.50, 8.50, 8.50, 13.50, 13.50, 13.50, 13.50, 13.50]
 
-number_pizzas = 12
+number_donuts = 12
 
 print("How many pizzas would you like to order? ")
-num_pizza = int(input())
+num_donut = int(input())
 
-for count in range (number_pizzas):
-    print (count+1, pizza_names[count], pizza_prices[count])
+for count in range (number_donuts):
+    print (count+1, donut_names[count], donut_prices[count])

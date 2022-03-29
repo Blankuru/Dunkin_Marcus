@@ -1,7 +1,7 @@
-#list to store ordered pizzas
+#list to store ordered donuts
 order_list = ['Margherita', 'Hawaiian', 'Vegan', 'BBQ Chicken Deluxe']
 
-#list to store pizza prices
+#list to store donut prices
 order_cost = [8.50, 8.50, 8.50, 13.50]
 
 cust_details = {'name': 'Mark', 'phone': '324124', 'house': '45', 'street': 'Harry', 'suburb': 'Howick'}
