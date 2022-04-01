@@ -8,7 +8,7 @@ while True:
         if Confirm == 1:
             print ("Order Confirm")
             print ("Your order has been sent to our kitchen")
-            print ("Your delicious pizza will be with you shorlty")
+            print ("Your delicious donuts will be with you shorlty")
             break 
 
         elif Confirm == 2:
