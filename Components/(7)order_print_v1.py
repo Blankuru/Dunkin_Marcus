@@ -1,8 +1,8 @@
 #list to store ordered donuts
-order_list = ['Margherita', 'Hawaiian', 'Vegan', 'BBQ Chicken Deluxe']
+order_list = ['Jelly', 'Strawberry Creame','Chocolate Cream','Boston Cream Donuts']
 
 #list to store donut prices
-order_cost = [8.50, 8.50, 8.50, 13.50]
+order_cost = [4.50, 5.50, 6.50, 6.50]
 
 cust_details = {'name': 'Mark', 'phone': '324124', 'house': '45', 'street': 'Harry', 'suburb': 'Howick'}
 
