@@ -52,5 +52,5 @@ for item in range(num_donuts):
         donut_ordered = donut_ordered - 1
         order_list.append(donut_names[donut_ordered])
         order_cost.append(donut_prices[donut_ordered])
-        print("{} {} ${:.2f}" .format(donut_names[donut_ordered], donut_prices[donut_ordered]))
+        print("{} ${:.2f}" .format(donut_names[donut_ordered], donut_prices[donut_ordered]))
         num_donuts = num_donuts - 1
