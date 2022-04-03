@@ -8,7 +8,7 @@ import random
 from random import randint 
 
 # List of random names 
-names =["Mikasa","Mikvyna","Thomas","CarCar","Abdul","Coconut","Woowie","Shawn","Marcus","Gaybe"]
+names = ["Shawn", "Karlo", "Louis", "Jodek", "Carlos", "Mikara", "Tomas", "Giancarlo", "Joaquin", "Jacob"]
 #List of pizza names 
 Pizza_names = ['Margherita','Pepperoni','Hawaiian','Cheese ','Italian','Veggie','Vegan','Chicken Deluxe',
                 'Mega Meat Lovers','Seafood Deluxe','Apricot chicken Deluxe','BBQ Chicken Deluxe']

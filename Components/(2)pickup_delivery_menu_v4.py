@@ -29,5 +29,3 @@ while True:
         print ("That is not a valid number")
         print ("")
         print ("Please pick a number between 1 or 2")
-
-    

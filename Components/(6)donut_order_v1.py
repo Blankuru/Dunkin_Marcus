@@ -1,10 +1,9 @@
-# list of donut names
-donut_names = ['Jelly', 'Strawberry Creame','Chocolate Cream','Boston Cream Donuts','Red Velvet','Glazed','Peanut Butter Glazed','Apple fritters',
-                'Sugared Rasberry','Chocolate Coco','Chocowhite powder','Pinky Heart']
+#list of donut names
+donut_names = ['Glazed', 'Chocolate Frosted','Chocolate Glazed','Jelly','Strawberry frosted','Chocolate Kreme','Sugared Rasberry','Glazed Rasberry',
+                'Vanilla Kreme','Strawberries and Cream','Double Chocolate','Cookies and Cream']
 
-
-# list of donut prices
-donut_prices = [4.50, 5.50, 6.50, 6.50, 7.50, 7.50, 8.50, 9.50, 9.50, 10.50, 13.50, 13.50]
+#list of donut prices
+donut_prices = [3.20, 4.00, 4.00, 4.50, 4.50, 5.50, 5.50, 5.50, 6.00, 6.50, 6.50, 7.00]
 
 #list to store ordered donuts
 order_list = []
@@ -26,7 +25,7 @@ menu()
 
 
 
-# ask for total number of pizzas for order
+# ask for total number of donuts for order
 num_donuts = 0
 
 num_donuts = int(input("How many donuts do you want to order? "))
