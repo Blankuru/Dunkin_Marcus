@@ -9,7 +9,8 @@ cust_details = {'name': 'Mark', 'phone': '324124', 'house': '45', 'street': 'Har
 
 #print ("Customer Name: {} Customer Phone:\n{} Customer House Number:\n{} Customer Street Name:\n{} Customer Suburb:\n{}" .format(cust_details['name'], cust_details['phone'], cust_details['house'], cust_details['street'], cust_details['suburb']))
 
-print ("Customer Name: {} Customer Phone:\n{} Customer House Number:\n{} Customer Street Name:\n{} Customer Suburb:\n{}" .format(cust_details['name'], cust_details['phone'], cust_details['house'], cust_details['street'], cust_details['suburb']))
+print ("Customer Name: {} Customer Phone:\n{} Customer House Number:\n{} Customer Street Name:\n{} Customer Suburb:\n{}"
+ .format(cust_details['name'], cust_details['phone'], cust_details['house'], cust_details['street'], cust_details['suburb']))
 
 
 count = 0

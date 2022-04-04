@@ -1,5 +1,4 @@
-from  tkinter.messagebox import QUESTION
-
+from tkinter.messagebox import QUESTION
 
 def order_type(low, high, question): 
  while True:
