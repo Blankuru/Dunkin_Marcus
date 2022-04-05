@@ -3,7 +3,7 @@ print ("To start another order enter 1")
 print ("To exit the BOT enter 2")
 while True:
     try: 
-     Confirm = int(input("please enter a number"))
+     Confirm = int(input("please enter a number: "))
      if Confirm >= 1 and Confirm <= 2:
         if Confirm == 1:
             print ("New Order")
