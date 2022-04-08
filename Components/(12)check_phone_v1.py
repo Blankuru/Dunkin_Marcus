@@ -1,10 +1,5 @@
-question = ("Please enter your phone number ")
 
-ph_low = 7
-ph_high = 10
-
-
-def check_phone(question):
+def check_phone(question, ph_low, ph_high):
     while True:
         try:
             num = int(input(question))
@@ -15,8 +10,16 @@ def check_phone(question):
                 count = count + 1
             if count >= ph_low and count <= ph_high:
                 print(num)
-                break
+                return str(num)
             else:
                 print ("NZ phone numbers have between 7 and 10 digits")
         except ValueError:
-            print ("Please enter your name")
+            print ("Please enter your number")
+
+ph_low = 7
+ph_high = 10
+
+question = ("Please enter your phone number ")
+
+phone = check_phone(question, ph_low, ph_high)
+print (phone)
