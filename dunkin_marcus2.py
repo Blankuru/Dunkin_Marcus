@@ -1,6 +1,7 @@
-import sys
-import random
-from random import randint
+import sys #Import system
+import random #Imports a random number generator
+from random import randint #from random it would be imported to randint
+from tkinter.messagebox import QUESTION 
 
 
 #Constants
@@ -24,54 +25,33 @@ donut_prices = [4.50, 5.50, 6.50, 6.50, 7.50, 7.50, 8.50, 9.50, 9.50, 10.50, 13.
 
 
 
-#creates a function which is "welcome"
-def welcome ():
-    '''
-    Purpose: To generate a random name from the list and print out a welcome message
-    Parameters: None
-    Returns: None 
-    '''
-    #random integer which is num
-    num = randint(0,9) 
 
-    # name is the list of names within the list with the random integer on it which creates a random name from the list
-    name = (names[num]) 
-
-    #prints Welcome to Dunkin Marcus
-    print ("*** Welcome to Dunkin Marcus ***")
-    #prints "My name is" and a name from someone in the list
-    print ("*** My name is", name, "***")
-    #prints that he/she will be helping with the customer's order
-    print ("***I will be here to help your order your delicous donuts***")
-
-
-
-#List to store orderd donuts
+#List to store ordered donuts
 order_list=[]
 
 
 #List to store donuts prices    
 order_cost=[]
 
-#customer detalis dictionary
+#customer details dictionary
 customer_details = {}
 
 #Validate inputs to check if they are blank
-def not_blank(question):
-    valid = False 
-    while not valid:
-        response = input(question)
-        if response != "":
-            return response.title()
-        else:
-            print("This cannot be blank")
+def not_blank(question): #Creates function not_blank
+    valid = False #Valid is false
+    while not valid: #While variable is not valid
+        response = input(question) #Asks question
+        if response != "": #If response is not blank
+            return response.title() #Returns to response with Capitalization
+        else: #If it was printed blank
+            print("This cannot be blank") #Prints "This cannot be blank"
 
 
 
 
-def check_string(question):
-    while True:
-        response = input(question)
+def check_string(question): #Function for inputs that requires letters only
+    while True: #while variable is true
+        response = input(question) #
         x = response.isalpha()
         if x == False:
             print ("Input must only contain letters")
@@ -80,7 +60,7 @@ def check_string(question):
 
 
 
-# Validates inputs to check if there is any integer
+#Validates inputs to check if there is any integer
 def val_int(low, high, question):
     while True:
         try:
@@ -97,7 +77,7 @@ def val_int(low, high, question):
 
 
 
-def check_phone(question, PH_LOW, PH_HIGH):
+def check_phone(question, PH_LOW, PH_HIGH ):
     while True:
         try:
             num = int(input(question))
@@ -107,7 +87,6 @@ def check_phone(question, PH_LOW, PH_HIGH):
                 test_num = test_num//10
                 count = count + 1
             if count >= PH_LOW and count <= PH_HIGH:
-                print(num)
                 return str(num)
             else:
                 print ("NZ phone numbers have between 7 and 10 digits")
@@ -117,29 +96,35 @@ def check_phone(question, PH_LOW, PH_HIGH):
 
 
 
-
-
-
-#Welcome Function
-def welcome():
-    ''' 
-    Purpose: To generate a random name from the list and print out 
-    a welcome message
-    parameter: None
-    Returns: None
+#creates a function "welcome"
+def welcome ():
     '''
-    num = randint(0,9)
-    name = (names[num])
-    print("*** Welcome to Dunkin Marcus***")
-    print("*** My name is",name, "***")
-    print("*** I will be here to help you order your delicious donuts***")
+    Purpose: To generate a random name from the list and print out a welcome message
+    Parameters: None
+    Returns: None 
+    '''
+    #random integer which is num
+    num = randint(0,9) 
+
+    #name is the list of names within the list with the random integer on it which creates a random name from the list
+    name = (names[num]) 
+
+    #prints Welcome to Dunkin Marcus
+    print ("*** Welcome to Dunkin Marcus ***")
+    #prints "My name is" and a name from someone in the list
+    print ("*** My name is", name, "***")
+    #prints that he/she will be helping with the customer's order
+    print ("***I will be here to help your order your delicous donuts***")
+
+
+
 
 
 
 
 #Menu for pickup and delivery 
-def order_type(): 
- del_pick= ""
+def order_type(): #Function for type of order whether it is pickup or delivery
+ del_pick = "" 
  print ("Is your order for pickup or delivery?")
  print ("For pickup please enter 1")
  print ("For delivery please enter 2")
@@ -172,15 +157,6 @@ def order_type():
 
 
 
-
-
-
-
-
-
-
-
-
 #pick up information- name and phone number 
 def pickup_info():
     question = ("Please enter your name: ")
@@ -192,7 +168,7 @@ def pickup_info():
     print (customer_details ['phone'])
     print(customer_details)
 
-# Delivery information - name address and phone
+#Delivery information - name address and phone
 def delivery_info():
     question = ("Please enter your name: ")
     customer_details['name'] = check_string(question )
@@ -226,7 +202,7 @@ def menu():
 
 
 
-# Ask for total number of donuts for order
+#Ask for total number of donuts for order
 def order_donut():
     num_donuts = 0
     while True:
@@ -294,6 +270,7 @@ def confirm_cancel():
             if confirm >= 1 and confirm <= 2:
                 if confirm == 1:
                     print ("Order confirm")
+                    print ("")
                     print ("Your order has been sent to our kitchen")
                     print ("Your delicious donuts will be with you shorlty")
                     new_exit()
@@ -301,7 +278,8 @@ def confirm_cancel():
 
                 elif confirm == 2:
                     print ("Your Order has been Cancelled")
-                    print ("Your can restart your order or exit the BOT")
+                    print ("")
+                    print ("You can restart your order or exit the BOT")
                     new_exit()
                     break 
             else:
@@ -311,7 +289,7 @@ def confirm_cancel():
             print("please enter 1 or 2")
 
 
-# Option for new order or to exit 
+#Option for new order or to exit 
 def new_exit():
     print("Do you want to start another Order or Exit")
     print ("To start another order enter 1")
@@ -356,7 +334,7 @@ def main():
     order_donut()
     print_order(del_pick)
     confirm_cancel()
-
+    new_exit()
 
 
 
