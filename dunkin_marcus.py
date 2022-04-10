@@ -52,13 +52,13 @@ def not_blank(question):  # Creates function not_blank
 
 
 def check_string(question):  # Function for inputs that requires letters only
-    while True:  # While variable is true
+    while True:  # creates loop
         response = input(question)  # Asks question
         x = response.isalpha()  # Only accepts letters
         if x is False:  # If x is false which means that the input are numbers
             print ("Input must only contain letters")  # Prints error message
         else:
-            return response.title()  # If input are letters returns to response with capitilazation
+            return response.title()  # If input are letters, it returns to response with capitilazation
 
 
 # Validates inputs to check if there is any integer
@@ -68,29 +68,29 @@ def val_int(low, high, question):  # Function for valid integer
             num = int(input(question))  # Asks question
             if num >= low and num <= high:  # If input is low and high
                 return num  # Returns and accepts input
-            else:  # If input is not valid
+            else:  # If input is not 1 or 2
                 print(f"Please enter a number between {low} and {high}")  # Asks for input again
-        except ValueError:  # 
-            print ("That is not a valid number") 
-            print(f"Please enter a number between {low} and {high}")
+        except ValueError:  # If input is a letter
+            print ("That is not a valid number")  # Prints error message
+            print(f"Please enter a number between {low} and {high}")  # Asks for input again
 
 
 # Function for inputs that requires phone numbers only
-def check_phone(question, PH_LOW, PH_HIGH):
-    while True:
-        try:
-            num = int(input(question))
-            test_num = num
-            count = 0
-            while test_num > 0:
-                test_num = test_num//10
-                count = count + 1
-            if count >= PH_LOW and count <= PH_HIGH:
-                return str(num)
-            else:
-                print ("NZ phone numbers have between 7 and 10 digits")
-        except ValueError:
-            print ("Please enter your number")
+def check_phone(question, PH_LOW, PH_HIGH):  # Creates function for phone number
+    while True:  # creates loop
+        try:  # While the function is true it will try to do the code below
+            num = int(input(question))  # Asks question
+            test_num = num  # Variable test_num is num
+            count = 0  # Count is equal to 0
+            while test_num > 0:  # while test_num is > 0
+                test_num = test_num//10  # test_num is equal to test_num divided by 10
+                count = count + 1  # count is equal to count + 1
+            if count >= PH_LOW and count <= PH_HIGH:  # if count is >= to PH_LOW and <= PH_HIGH
+                return str(num)  # returns to str(num)
+            else:  # If input is below 7 or above 10 numbers
+                print ("NZ phone numbers have between 7 and 10 digits")  # Prints message
+        except ValueError:  # If input is blank or letters
+            print ("Please enter your number")  # Prints message
 
 
 # creates a function "welcome"
@@ -119,36 +119,36 @@ print ("***I will be here to help your order your delicous donuts***")
 # Menu for pickup and delivery
 # Function for type of order whether it is pickup or delivery
 def order_type():
-    del_pick = ""
-    print ("Is your order for pickup or delivery? ")
-    print ("For pickup please enter 1")
-    print ("For delivery please enter 2")
-    while True:
-            try:
-                delivery = int(input("Please enter a number: "))
-                if delivery >= 1 and delivery <= 2:
-                    if delivery == 1:
-                        print ("pickup")
-                        pickup_info()
-                        del_pick = "pickup"
-                        break
-                    elif delivery == 2:
-                        print ("delivery")
-                        delivery_info()
-                        del_pick = "delivery"
-                        break
-                else:
-                    print ("Number must be 1 or 2")
-            except ValueError:
-                print("That is not a valid number")
-                print("please enter 1 or 2")
-    return del_pick
+    del_pick = ""  # del_pick is <blank>
+    print ("Is your order for pickup or delivery? ")  # Asks question
+    print ("For pickup please enter 1")  # Asks if it is pickup by entering 1
+    print ("For delivery please enter 2")  # Asks if it is delivery by entering 2
+    while True:  # creates loop
+            try:  # Tries the code below
+                delivery = int(input("Please enter a number: "))  # asks to please enter a number
+                if delivery >= 1 and delivery <= 2:  # if delivery variable is >= 1 and <= 2
+                    if delivery == 1:  # if input is 1
+                        print ("pickup")  # prints pickup
+                        pickup_info()  # does pickup_info function
+                        del_pick = "pickup"  # del_pick variable is pickup
+                        break  # breaks loop
+                    elif delivery == 2:  # if delivery variable is 2
+                        print ("delivery")  # prints delivery
+                        delivery_info()  # does delivery_info function
+                        del_pick = "delivery"  # del_pick variable is delivery
+                        break  # breaks loop
+                else:  # If input is not 1 or 2
+                    print ("Number must be 1 or 2")  # asks input to be 1 or 2
+            except ValueError:  # If input are letters and <blank>
+                print("That is not a valid number")  # prints message
+                print("please enter 1 or 2")  # asks input to be entered 1 or 2
+    return del_pick  # returns input to del_pick
 
 
 # pick up information- name and phone number
 def pickup_info():
-    question = ("Please enter your name: ")
-    customer_details['name'] = check_string(question)
+    question = ("Please enter your name: ")  # Asks question
+    customer_details['name'] = check_string(question)  # customer details 
     print (customer_details['name'])
 
     question = ("Please enter your phone number: ")
@@ -236,8 +236,6 @@ def print_order(del_pick):
         print("Your order is for delivery a $9.00 delivery charge applies")
         total_cost = total_cost + 9
         print(f"Customer Name: {customer_details['name']} \nCustomer Phone: {customer_details['phone']} \nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
-        if order_list >= 5:
-            print ("ass")
     print()
     print("Your Order Details")
     count = 0
