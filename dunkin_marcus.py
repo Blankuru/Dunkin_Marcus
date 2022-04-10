@@ -17,11 +17,11 @@ names = ["Shawn", "Karlo", "Louis", "Jodek", "Carlos",
 
 
 # list of donut names
-donut_names = ['Jelly', 'Strawberry Creame', 'Chocolate Cream',
-               'Boston Cream Donuts', 'Red Velvet',
-               'Glazed', 'Peanut Butter Glazed', 'Apple fritters',
-               'Sugared Rasberry', 'Chocolate Coco', 'Chocowhite powder',
-               'Pinky Heart']
+donut_names = ['Jelly Box', 'Strawberry Creame Box', 'Chocolate Cream Box',
+               'Boston Cream Donuts Box', 'Red Velvet Box',
+               'Glazed Box', 'Peanut Butter Glazed Box', 'Apple fritters Box',
+               'Sugared Rasberry Box', 'Chocolate Coco Box', 'Chocowhite powder Box',
+               'Pinky Heart Box']
 
 
 # list of donut prices
@@ -69,9 +69,9 @@ def val_int(low, high, question):  # Function for valid integer
             if num >= low and num <= high:  # If input is low and high
                 return num  # Returns and accepts input
             else:  # If input is not valid
-                print(f"Please enter a number between {low} and {high}")  # 
-        except ValueError:
-            print ("That is not a valid number")
+                print(f"Please enter a number between {low} and {high}")  # Asks for input again
+        except ValueError:  # 
+            print ("That is not a valid number") 
             print(f"Please enter a number between {low} and {high}")
 
 
@@ -194,14 +194,14 @@ def order_donut():
     num_donuts = 0
     while True:
         try:
-            num_donuts = int(input("How many donuts do you want to order? "))
-            if num_donuts >= 1 and num_donuts <= 5:
+            num_donuts = int(input("How many donuts do you want to order between 1 and 8? "))
+            if num_donuts >= 1 and num_donuts <= 8:
                 break
             else:
-                print ("Your order must be between 1 and 5")
+                print ("Your order must be between 1 and 8")
         except ValueError:
             print ("That is not a valid number")
-            print ("Please enter 1 or 5")
+            print ("Please enter a number between 1 and 8")
 
 # Choose donut from menu
     for item in range(num_donuts):
@@ -228,16 +228,18 @@ def order_donut():
 def print_order(del_pick):
     print()
     total_cost = sum(order_cost)
-    print("Customer_Details")
+    print("Customer Details")
     if del_pick == "pickup":
         print("Your order is for pickup")
         print(f"Customer Name: {customer_details['name']} \nCustomer Phone: {customer_details['phone']}")
     elif del_pick == "delivery":
-        print("Your order is for delivery a $5.00 delivery charge applies")
-        total_cost = total_cost + 5
+        print("Your order is for delivery a $9.00 delivery charge applies")
+        total_cost = total_cost + 9
         print(f"Customer Name: {customer_details['name']} \nCustomer Phone: {customer_details['phone']} \nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
+        if order_list >= 5:
+            print ("ass")
     print()
-    print("Your Order Deatils")
+    print("Your Order Details")
     count = 0
     for item in order_list:
         print("Ordered: {}  Cost ${:.2f}".format(item, order_cost[count]))
