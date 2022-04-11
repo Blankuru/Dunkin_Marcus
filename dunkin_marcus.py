@@ -17,16 +17,16 @@ names = ["Shawn", "Karlo", "Louis", "Jodek", "Carlos",
 
 
 # list of donut names
-donut_names = ['Jelly Box', 'Strawberry Creame Box', 'Chocolate Cream Box',
-               'Boston Cream Donuts Box', 'Red Velvet Box',
-               'Glazed Box', 'Peanut Butter Glazed Box', 'Apple fritters Box',
-               'Sugared Rasberry Box', 'Chocolate Coco Box', 'Chocowhite powder Box',
-               'Pinky Heart Box']
+donut_names = ['Jelly', 'Strawberry Creame', 'Chocolate Cream',
+               'Boston Cream Donuts', 'Red Velvet',
+               'Glazed', 'Peanut Butter Glazed', 'Apple fritters',
+               'Sugared Rasberry', 'Chocolate Coco', 'Chocowhite powder',
+               'Pinky Heart']
 
 
 # list of donut prices
-donut_prices = [4.50, 5.50, 6.50, 6.50, 7.50, 7.50, 8.50,
-                9.50, 9.50, 10.50, 13.50, 13.50]
+donut_prices = [1.50, 1.50, 1.50, 2.00, 2.00, 2.50, 2.50,
+                2.50, 3.50, 3.50, 4.00, 4.00]
 
 
 # List to store ordered donuts
@@ -128,14 +128,14 @@ def order_type():
                 delivery = int(input("Please enter a number: "))  # asks to please enter a number
                 if delivery >= 1 and delivery <= 2:  # if delivery variable is >= 1 and <= 2
                     if delivery == 1:  # if input is 1
-                        print ("pickup")  # prints pickup
+                        print ("Pickup")  # prints pickup
                         pickup_info()  # does pickup_info function
-                        del_pick = "pickup"  # del_pick variable is pickup
+                        del_pick = "Pickup"  # del_pick variable is pickup
                         break  # breaks loop
                     elif delivery == 2:  # if delivery variable is 2
-                        print ("delivery")  # prints delivery
+                        print ("Delivery")  # prints delivery
                         delivery_info()  # does delivery_info function
-                        del_pick = "delivery"  # del_pick variable is delivery
+                        del_pick = "Delivery"  # del_pick variable is delivery
                         break  # breaks loop
                 else:  # If input is not 1 or 2
                     print ("Number must be 1 or 2")  # asks input to be 1 or 2
@@ -146,181 +146,185 @@ def order_type():
 
 
 # pick up information- name and phone number
-def pickup_info():
+def pickup_info():  # Creates pickup info function
     question = ("Please enter your name: ")  # Asks question
-    customer_details['name'] = check_string(question)  # customer details 
-    print (customer_details['name'])
+    customer_details['name'] = check_string(question)  # stores name in customer_details also checks if input is in letters
+    print (customer_details['name'])  # prints customer name
 
-    question = ("Please enter your phone number: ")
-    customer_details['phone'] = check_phone(question, PH_LOW, PH_HIGH)
-    print (customer_details['phone'])
-    print(customer_details)
+    question = ("Please enter your phone number: ")  # asks phone number
+    customer_details['phone'] = check_phone(question, PH_LOW, PH_HIGH)  # stores phone in customer_details also checks if input is in numbers
+    print (customer_details['phone'])  # prints customer phone
+    print(customer_details)  # prints customer details
 
 
 # Delivery information - name address and phone
-def delivery_info():
-    question = ("Please enter your name: ")
-    customer_details['name'] = check_string(question)
-    print (customer_details['name'])
+def delivery_info():  # Creates delivery info function
+    question = ("Please enter your name: ")  # asks to enter your name
+    customer_details['name'] = check_string(question)  # stores name in customer details also checks if input is letters
+    print (customer_details['name'])  # prints customer name
 
-    question = ("Please enter your phone number: ")
-    customer_details['phone'] = check_phone(question, PH_LOW, PH_HIGH)
-    print (customer_details['phone'])
+    question = ("Please enter your phone number: ")  # asks phone number
+    customer_details['phone'] = check_phone(question, PH_LOW, PH_HIGH)  # stores phone in customer_details also checks if input is in numbers between 7 and 10
+    print (customer_details['phone'])  # prints customer phone
 
-    question = ("Please enter your house number: ")
-    customer_details['house'] = not_blank(question)
-    print (customer_details['house'])
+    question = ("Please enter your house number: ")  # asks for house number
+    customer_details['house'] = not_blank(question)  # stores house number in customer_details also checks
+    print (customer_details['house'])  # prints customer house number
 
-    question = ("Please enter your street name: ")
-    customer_details['street'] = check_string(question)
-    print (customer_details['street'])
+    question = ("Please enter your street name: ")  # asks for street name
+    customer_details['street'] = check_string(question)  # stores street name in customer_details also checks if input is letters
+    print (customer_details['street'])  # prints customer street name
 
-    question = ("Please enter your suburb: ")
-    customer_details['suburb'] = check_string(question)
-    print (customer_details['suburb'])
+    question = ("Please enter your suburb: ")  # asks for suburb
+    customer_details['suburb'] = check_string(question)  # stores suburb in customer_details also checks if input is letters
+    print (customer_details['suburb'])  # prints customer suburb
 
 
 # Donut Menu
-def menu():
-    number_donuts = 12
+def menu():  # function for menu
+    number_donuts = 12  # total of donuts in the menu
 
-    for count in range(number_donuts):
+    for count in range(number_donuts):  # for count in range of variable number_donuts
         print ("{} {} ${:.2f}" .format(count+1, donut_names[count],
-                                       donut_prices[count]))
+                                       donut_prices[count]))  # format of menu, which shows list from 1 to 12, donut names, and prices
 
 
-# Ask for total number of donuts for order
-def order_donut():
-    num_donuts = 0
-    while True:
-        try:
-            num_donuts = int(input("How many donuts do you want to order between 1 and 8? "))
-            if num_donuts >= 1 and num_donuts <= 8:
-                break
-            else:
-                print ("Your order must be between 1 and 8")
-        except ValueError:
-            print ("That is not a valid number")
-            print ("Please enter a number between 1 and 8")
+# Function for ordering donuts
+def order_donut():  
+    num_donuts = 0  # num_donuts is 0
+    while True:  # creates loop
+        try:  # tries code below
+            num_donuts = int(input("How many donuts do you want to order between 1 and 8? "))  # Asks question
+            if num_donuts >= 1 and num_donuts <= 8:  # if num_ donuts is >= 1 and <= 8
+                break  # breaks loop
+            else:  # if not between 1 and 8
+                print ("Your order must be between 1 and 8")  # prints that your order must be between 1 and 8
+        except ValueError:  # If input is a letter or <blank>
+            print ("That is not a valid number")  # prints error message
+            print ("Please enter a number between 1 and 8")  # Asks for input between 1 and 8
 
 # Choose donut from menu
-    for item in range(num_donuts):
-        while num_donuts > 0:
-            while True:
-                try:
-                    donut_ordered = int(input("Please choose your donut by entering the number from the menu: "))
-                    if donut_ordered >= 1 and donut_ordered <= 12:
-                        break
-                    else:
-                        print ("Your order must be between 1 and 12")
-                except ValueError:
-                    print ("This is not a valid number")
-                    print ("Please enter 1 or 12")
-            donut_ordered = donut_ordered - 1
-            order_list.append(donut_names[donut_ordered])
-            order_cost.append(donut_prices[donut_ordered])
+    for item in range(num_donuts):  # for item in range variable num_donuts
+        while num_donuts > 0:  # while num_donuts is 0
+            while True:  # while variable is true
+                try:  # tries code below
+                    donut_ordered = int(input("Please choose your donut by entering the number from the menu: "))  # Asks question in integer
+                    if donut_ordered >= 1 and donut_ordered <= 12:  # if donut ordered is >= 1 and <= 12
+                        break  # breaks loop
+                    else:  # if order is not between 1 and 12
+                        print ("Your order must be between 1 and 12")  # prints order must be between 1 and 12
+                except ValueError:  # If input is in letters or <blank>
+                    print ("This is not a valid number")  # Prints error message
+                    print ("Please enter between 1 and 12")  # Asks for input to be between 1 and 12
+            donut_ordered = donut_ordered - 1  # donut_ordered is minus 1 per order inputted
+            order_list.append(donut_names[donut_ordered])  # order list appending donut names and donut ordered input
+            order_cost.append(donut_prices[donut_ordered])  # order cost appending donut prices and donut ordered input
             print("{} ${:.2f}" .format(donut_names[donut_ordered],
-                                       donut_prices[donut_ordered]))
-            num_donuts = num_donuts - 1
+                                       donut_prices[donut_ordered]))  # prints in format
+            num_donuts = num_donuts - 1  # num_donuts is minus 1 per order it is inputted
 
 
 # Print order out - Including if order is delivery or pickup and names and prices of each donut - total cost including any delivery charge
-def print_order(del_pick):
-    print()
-    total_cost = sum(order_cost)
-    print("Customer Details")
-    if del_pick == "pickup":
-        print("Your order is for pickup")
-        print(f"Customer Name: {customer_details['name']} \nCustomer Phone: {customer_details['phone']}")
-    elif del_pick == "delivery":
-        print("Your order is for delivery a $9.00 delivery charge applies")
-        total_cost = total_cost + 9
-        print(f"Customer Name: {customer_details['name']} \nCustomer Phone: {customer_details['phone']} \nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
-    print()
-    print("Your Order Details")
-    count = 0
-    for item in order_list:
-        print("Ordered: {}  Cost ${:.2f}".format(item, order_cost[count]))
-        count = count+1
-    print()
-    print("Total Order Cost")
-    print(f"${total_cost:.2f}")
+def print_order(del_pick):  # creates function
+    print()  # prints blank line
+    total_cost = sum(order_cost)  # total_cost is sum of order_cost
+    print("Customer Details")  # prints Customer Details
+    if del_pick == "Pickup":  # if del_pick is pickup
+        print("Your order is for pickup")  # prints order is for pickup
+        print(f"Customer Name: {customer_details['name']}")  # prints customer name
+        print(f"Customer Phone: {customer_details['phone']}")  # prints customer phone
+    elif del_pick == "Delivery":  # if del_pick is delivery
+        print(f"Customer Name: {customer_details['name']}")  # prints customer name
+        print(f"Customer Phone: {customer_details['phone']}")  # prints customer phone
+        print(f"Customer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")  # prints customer address
+    print()  # prints blank line
+    print("Your Order Details")  # prints order details
+    count = 0  # count is 0
+    for item in order_list:  # for items in order list
+        print("Ordered: {} Cost: ${:.2f}".format(item, order_cost[count]))  # prints order in format
+        count = count + 1  # count gets added by 1
+    print()  # prints blank line
+    if del_pick == "Delivery":  # if del_pick is delivery
+        if len(order_list) >= 5:  # if length of order list is >= 5
+            print ("Your order will be free of delivery charge")  # prints order will be free of delivery charge
+        elif len(order_list) <= 5:  # if length of order list is <= 5
+            print ("There is an additional $9.00 delivery charge")  # prints additional delivery charge of $9.00
+            total_cost = total_cost + 9  # adds 9 to total cost
+
+    print("Total Order Cost")  # prints total order cost
+    print(f"${total_cost:.2f}")  # total cost in format
 
 
 # Ability to cancel or proceed with order
-def confirm_cancel():
-    print("Please confirm Your Order")
-    print ("To confirm please enter 1")
-    print ("To Cancel please enter 2")
-    while True:
-        try:
-            confirm = int(input("please enter a number: "))
-            if confirm >= 1 and confirm <= 2:
-                if confirm == 1:
-                    print ("Order confirm")
-                    print ("")
-                    print ("Your order has been sent to our kitchen")
-                    print ("Your delicious donuts will be with you shorlty")
-                    new_exit()
-                    break
+def confirm_cancel():  # creates confirm_cancel function
+    print("Please confirm your order")  # prints please confirm your order
+    print ("To confirm please enter 1")  # prints to enter 1 for confirmation
+    print ("To cancel please enter 2")  # prints to enter 2 for cancel
+    while True:  # Creates loop
+        try:  # tries code below
+            confirm = int(input("please enter a number: "))  # asks for input
+            if confirm == 1:  # if confirm is 1
+                print ("Order confirm")  # prints order is confirmed
+                print ()  # prints blank line
+                print ("Your delicious donuts will be with you shorlty")  # prints message
+                new_exit()  # executes to new_exit function
+                break  # breaks loop
 
-                elif confirm == 2:
-                    print ("Your Order has been Cancelled")
-                    print ("")
-                    print ("You can restart your order or exit the BOT")
-                    new_exit()
-                    break
-            else:
-                print ("Number must be 1 or 2")
-        except ValueError:
-            print("That is not a valid number")
-            print("please enter 1 or 2")
+            elif confirm == 2:  # if confirm is 2
+                print ("Your order has been Cancelled")  # order has been cancelled
+                print ()  # prints blank line
+                print ("You can restart your order or exit the store")  # prints that you can order or exit the store
+                new_exit()  # executes to new_exit function
+                break  # breaks the loop
+            else:  # if input is not 1 or 2
+                print ("Number must be 1 or 2")  # prints error message
+        except ValueError:  # if input is letters or <blank>
+            print("That is not a valid number")  # prints error message
+            print("please enter 1 or 2")  # asks to enter 1 or 2
 
 
 # Option for new order or to exit
-def new_exit():
-    print("Do you want to start another Order or Exit")
-    print ("To start another order enter 1")
-    print ("To exit the BOT enter 2")
-    while True:
-        try:
-            confirm = int(input("please enter a number: "))
-            if confirm >= 1 and confirm <= 2:
-                if confirm == 1:
-                    print ("New Order")
-                    order_list.clear()
-                    order_cost.clear()
-                    customer_details.clear
-                    main()
-                    break
-                elif confirm == 2:
-                    print ("Exit")
-                    order_list.clear()
-                    order_cost.clear()
-                    customer_details.clear
-                    sys.exit()
-                    break
-            else:
-                print ("Number must be 1 or 2")
-        except ValueError:
-            print("That is not a valid number")
-            print("please enter 1 or 2: ")
-
+def new_exit():  # creates new_exit function
+    print("Do you want to start another Order or Exit")  # prints if you want to start another order or exit
+    print ("To start another order enter 1")  # prints to press 1 if you want to start another order
+    print ("To exit the store enter 2")  # prints to press 2 if you want to exit the store
+    while True:  # creates loop
+        try:  # tries code below 
+            confirm = int(input("please enter a number: "))  # asks input
+            if confirm == 1:  # if confirm is 1
+                print ("New Order")  # prints new order
+                order_list.clear()  # order list information is cleared
+                order_cost.clear()  # order cost information is cleared
+                customer_details.clear  # customer details is cleared
+                main()  # back to main fucntion
+                break  # breaks loop
+            elif confirm == 2:  # if confirm is 2
+                print ("Exit")  # prints exit
+                order_list.clear()  # order list information is cleared
+                order_cost.clear()  # order cost information is cleared
+                customer_details.clear  # customer details is cleared
+                sys.exit()  # system exit
+            else:  # if input is not 1 or 2
+                print ("Number must be 1 or 2")  # prints number between 1 or 2
+        except ValueError:  # if input is letters or <blank>
+            print("That is not a valid number")  # prints that is not a valid number
+            print("please enter 1 or 2: ")  # asks for input
+            
 
 # Main function
-def main():
+def main(): 
     '''
     Purpose: To generate a random name from the list and print
              out a welcome message
     Parameters: None
     Returns: None
     '''
-    welcome()
-    del_pick = order_type()
-    menu()
-    order_donut()
-    print_order(del_pick)
-    confirm_cancel()
-    new_exit()
+    welcome()  # executes welcome function
+    del_pick = order_type()  # executes order_type function
+    menu()  # executes menu function
+    order_donut()  # executes order_donut function
+    print_order(del_pick)  # executes print_order function
+    confirm_cancel()  # executes confirm_cancel function
+    new_exit()  # executes new_exit function
 
-main()
+main()  # executes main program

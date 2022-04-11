@@ -8,7 +8,6 @@ print ("Please enter your pickup information")
 valid = False
 while not valid:
     customer_details['name'] = input("Please enter your name: ")
-    print ("")
     if customer_details['name'] != "":
         print (customer_details['name'])
         break
