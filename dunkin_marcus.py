@@ -93,6 +93,13 @@ def check_phone(question, PH_LOW, PH_HIGH):  # Creates function for phone number
             print ("Please enter your number")  # Prints message
 
 
+# Creates logo function
+def logo():
+    print ()
+    print ("***********************************************************")
+    print ("********************** Dunkin Marcus **********************")  # prints logo
+    print ("***********************************************************")
+    print ()
 # creates a function "welcome"
 def welcome():
     '''
@@ -108,12 +115,13 @@ num = randint(0, 9)
 # random integer on it which creates a random name from the list
 name = (names[num])
 
+logo()  # prints logo
 # prints Welcome to Dunkin Marcus
 print ("*** Welcome to Dunkin Marcus ***")
 # prints "My name is" and a name from someone in the list
 print ("*** My name is", name, "***")
 # prints that he/she will be helping with the customer's order
-print ("***I will be here to help your order your delicous donuts***")
+print ("*** I will be here to help your order your delicous donuts ***")
 
 
 # Menu for pickup and delivery
@@ -121,11 +129,13 @@ print ("***I will be here to help your order your delicous donuts***")
 def order_type():
     del_pick = ""  # del_pick is <blank>
     print ("Is your order for pickup or delivery? ")  # Asks question
+    print ()  # prints blank line
     print ("For pickup please enter 1")  # Asks if it is pickup by entering 1
     print ("For delivery please enter 2")  # Asks if it is delivery by entering 2
     while True:  # creates loop
             try:  # Tries the code below
                 delivery = int(input("Please enter a number: "))  # asks to please enter a number
+                print ()  # prints blank line
                 if delivery >= 1 and delivery <= 2:  # if delivery variable is >= 1 and <= 2
                     if delivery == 1:  # if input is 1
                         print ("Pickup")  # prints pickup
@@ -141,43 +151,51 @@ def order_type():
                     print ("Number must be 1 or 2")  # asks input to be 1 or 2
             except ValueError:  # If input are letters and <blank>
                 print("That is not a valid number")  # prints message
-                print("please enter 1 or 2")  # asks input to be entered 1 or 2
+                print ()  # prints blank line
+                print("Please enter 1 or 2")  # asks input to be entered 1 or 2
     return del_pick  # returns input to del_pick
 
 
 # pick up information- name and phone number
 def pickup_info():  # Creates pickup info function
     question = ("Please enter your name: ")  # Asks question
-    customer_details['name'] = check_string(question)  # stores name in customer_details also checks if input is in letters
-    print (customer_details['name'])  # prints customer name
+    customer_details['Name'] = check_string(question)  # stores name in customer_details also checks if input is in letters
+    print (customer_details['Name'])  # prints customer name
+    print ()  # prints blank line
 
     question = ("Please enter your phone number: ")  # asks phone number
-    customer_details['phone'] = check_phone(question, PH_LOW, PH_HIGH)  # stores phone in customer_details also checks if input is in numbers
-    print (customer_details['phone'])  # prints customer phone
+    customer_details['Phone'] = check_phone(question, PH_LOW, PH_HIGH)  # stores phone in customer_details also checks if input is in numbers
+    print (customer_details['Phone'])  # prints customer phone
     print(customer_details)  # prints customer details
+    print ()  # prints blank line
 
 
 # Delivery information - name address and phone
 def delivery_info():  # Creates delivery info function
     question = ("Please enter your name: ")  # asks to enter your name
-    customer_details['name'] = check_string(question)  # stores name in customer details also checks if input is letters
-    print (customer_details['name'])  # prints customer name
+    customer_details['Name'] = check_string(question)  # stores name in customer details also checks if input is letters
+    print (customer_details['Name'])  # prints customer name
+    print ()  # prints blank line
 
     question = ("Please enter your phone number: ")  # asks phone number
-    customer_details['phone'] = check_phone(question, PH_LOW, PH_HIGH)  # stores phone in customer_details also checks if input is in numbers between 7 and 10
-    print (customer_details['phone'])  # prints customer phone
+    customer_details['Phone'] = check_phone(question, PH_LOW, PH_HIGH)  # stores phone in customer_details also checks if input is in numbers between 7 and 10
+    print (customer_details['Phone'])  # prints customer phone
+    print ()  # prints blank line
 
     question = ("Please enter your house number: ")  # asks for house number
-    customer_details['house'] = not_blank(question)  # stores house number in customer_details also checks
-    print (customer_details['house'])  # prints customer house number
+    customer_details['House'] = not_blank(question)  # stores house number in customer_details also checks
+    print (customer_details['House'])  # prints customer house number
+    print ()  # prints blank line
 
     question = ("Please enter your street name: ")  # asks for street name
-    customer_details['street'] = check_string(question)  # stores street name in customer_details also checks if input is letters
-    print (customer_details['street'])  # prints customer street name
+    customer_details['Street'] = check_string(question)  # stores street name in customer_details also checks if input is letters
+    print (customer_details['Street'])  # prints customer street name
+    print ()  # prints blank line
 
     question = ("Please enter your suburb: ")  # asks for suburb
-    customer_details['suburb'] = check_string(question)  # stores suburb in customer_details also checks if input is letters
-    print (customer_details['suburb'])  # prints customer suburb
+    customer_details['Suburb'] = check_string(question)  # stores suburb in customer_details also checks if input is letters
+    print (customer_details['Suburb'])  # prints customer suburb
+    print ()  # prints blank line
 
 
 # Donut Menu
@@ -194,6 +212,7 @@ def order_donut():
     num_donuts = 0  # num_donuts is 0
     while True:  # creates loop
         try:  # tries code below
+            print ()  # prints blank line
             num_donuts = int(input("How many donuts do you want to order between 1 and 8? "))  # Asks question
             if num_donuts >= 1 and num_donuts <= 8:  # if num_ donuts is >= 1 and <= 8
                 break  # breaks loop
@@ -208,6 +227,7 @@ def order_donut():
         while num_donuts > 0:  # while num_donuts is 0
             while True:  # while variable is true
                 try:  # tries code below
+                    print ()  # prints blank line
                     donut_ordered = int(input("Please choose your donut by entering the number from the menu: "))  # Asks question in integer
                     if donut_ordered >= 1 and donut_ordered <= 12:  # if donut ordered is >= 1 and <= 12
                         break  # breaks loop
@@ -231,12 +251,12 @@ def print_order(del_pick):  # creates function
     print("Customer Details")  # prints Customer Details
     if del_pick == "Pickup":  # if del_pick is pickup
         print("Your order is for pickup")  # prints order is for pickup
-        print(f"Customer Name: {customer_details['name']}")  # prints customer name
-        print(f"Customer Phone: {customer_details['phone']}")  # prints customer phone
+        print(f"Customer Name: {customer_details['Name']}")  # prints customer name
+        print(f"Customer Phone: {customer_details['Phone']}")  # prints customer phone
     elif del_pick == "Delivery":  # if del_pick is delivery
-        print(f"Customer Name: {customer_details['name']}")  # prints customer name
-        print(f"Customer Phone: {customer_details['phone']}")  # prints customer phone
-        print(f"Customer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")  # prints customer address
+        print(f"Customer Name: {customer_details['Name']}")  # prints customer name
+        print(f"Customer Phone: {customer_details['Phone']}")  # prints customer phone
+        print(f"Customer Address: {customer_details['House']} {customer_details['Street']} {customer_details['Suburb']}")  # prints customer address
     print()  # prints blank line
     print("Your Order Details")  # prints order details
     count = 0  # count is 0
@@ -303,6 +323,7 @@ def new_exit():  # creates new_exit function
                 order_list.clear()  # order list information is cleared
                 order_cost.clear()  # order cost information is cleared
                 customer_details.clear  # customer details is cleared
+                logo()  # prints logo
                 sys.exit()  # system exit
             else:  # if input is not 1 or 2
                 print ("Number must be 1 or 2")  # prints number between 1 or 2
