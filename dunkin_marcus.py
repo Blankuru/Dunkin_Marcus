@@ -44,11 +44,16 @@ customer_details = {}
 def not_blank(question):  # Creates function not_blank
     valid = False  # Valid is false
     while not valid:  # While variable is not valid
-        response = input(question)  # Asks question
-        if response != "":  # If response is not blank
-            return response.title()  # Returns to response with Capitalization
-        else:  # If it was printed blank
-            print("This cannot be blank")  # Prints error message
+        try:
+            response = input(question)  # Asks question
+            if response != "":  # If response is not blank
+                return response.title()  # Returns to response with Capitalization
+            else:  # If it was printed blank
+                print("This cannot be blank")  # Prints error message
+        except ValueError:
+                print ("That is not a valid house number")  # prints error message if input is a space
+                print ()
+            
 
 
 def check_string(question):  # Function for inputs that requires letters only
@@ -90,7 +95,8 @@ def check_phone(question, PH_LOW, PH_HIGH):  # Creates function for phone number
             else:  # If input is below 7 or above 10 numbers
                 print ("NZ phone numbers have between 7 and 10 digits")  # Prints message
         except ValueError:  # If input is blank or letters
-            print ("Please enter your number")  # Prints message
+            print ("That is not a valid phone number")  # Prints message
+            print ()  # prints blank line
 
 
 # Creates logo function
