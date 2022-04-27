@@ -32,7 +32,6 @@ donut_prices = [1.50, 1.50, 1.50, 2.00, 2.00, 2.50, 2.50,
 # List to store ordered donuts
 order_list = []
 
-
 # List to store donuts prices
 order_cost = []
 
@@ -44,16 +43,11 @@ customer_details = {}
 def not_blank(question):  # Creates function not_blank
     valid = False  # Valid is false
     while not valid:  # While variable is not valid
-        try:
-            response = input(question)  # Asks question
-            if response != "":  # If response is not blank
-                return response.title()  # Returns to response with Capitalization
-            else:  # If it was printed blank
-                print("This cannot be blank")  # Prints error message
-        except ValueError:
-                print ("That is not a valid house number")  # prints error message if input is a space
-                print ()
-            
+        response = input(question)  # Asks question
+        if response != "":  # If response is not blank
+            return response.title()  # Returns to response with Capitalization
+        else:  # If it was printed blank
+            print("This cannot be blank")  # Prints error message
 
 
 def check_string(question):  # Function for inputs that requires letters only
@@ -77,6 +71,7 @@ def val_int(low, high, question):  # Function for valid integer
                 print(f"Please enter a number between {low} and {high}")  # Asks for input again
         except ValueError:  # If input is a letter
             print ("That is not a valid number")  # Prints error message
+            print ()  # prints blank line
             print(f"Please enter a number between {low} and {high}")  # Asks for input again
 
 
@@ -106,6 +101,8 @@ def logo():
     print ("********************** Dunkin Marcus **********************")  # prints logo
     print ("***********************************************************")
     print ()
+
+
 # creates a function "welcome"
 def welcome():
     '''
@@ -226,7 +223,9 @@ def order_donut():
                 print ("Your order must be between 1 and 8")  # prints that your order must be between 1 and 8
         except ValueError:  # If input is a letter or <blank>
             print ("That is not a valid number")  # prints error message
+            print ()  # prints blank line
             print ("Please enter a number between 1 and 8")  # Asks for input between 1 and 8
+
 
 # Choose donut from menu
     for item in range(num_donuts):  # for item in range variable num_donuts
@@ -241,6 +240,7 @@ def order_donut():
                         print ("Your order must be between 1 and 12")  # prints order must be between 1 and 12
                 except ValueError:  # If input is in letters or <blank>
                     print ("This is not a valid number")  # Prints error message
+                    print ()  # prints blank line
                     print ("Please enter between 1 and 12")  # Asks for input to be between 1 and 12
             donut_ordered = donut_ordered - 1  # donut_ordered is minus 1 per order inputted
             order_list.append(donut_names[donut_ordered])  # order list appending donut names and donut ordered input
@@ -288,7 +288,7 @@ def confirm_cancel():  # creates confirm_cancel function
     print ("To cancel please enter 2")  # prints to enter 2 for cancel
     while True:  # Creates loop
         try:  # tries code below
-            confirm = int(input("please enter a number: "))  # asks for input
+            confirm = int(input("Please enter a number: "))  # asks for input
             if confirm == 1:  # if confirm is 1
                 print ("Order confirm")  # prints order is confirmed
                 print ()  # prints blank line
@@ -306,7 +306,8 @@ def confirm_cancel():  # creates confirm_cancel function
                 print ("Number must be 1 or 2")  # prints error message
         except ValueError:  # if input is letters or <blank>
             print("That is not a valid number")  # prints error message
-            print("please enter 1 or 2")  # asks to enter 1 or 2
+            print ()  # prints blank line
+            print("Please enter 1 or 2")  # asks to enter 1 or 2
 
 
 # Option for new order or to exit
@@ -335,7 +336,8 @@ def new_exit():  # creates new_exit function
                 print ("Number must be 1 or 2")  # prints number between 1 or 2
         except ValueError:  # if input is letters or <blank>
             print("That is not a valid number")  # prints that is not a valid number
-            print("please enter 1 or 2: ")  # asks for input
+            print ()  # prints blank line
+            print("Please enter 1 or 2: ")  # asks for input
             
 
 # Main function
