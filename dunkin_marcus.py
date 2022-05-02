@@ -1,7 +1,7 @@
 import sys  # Import system
 import random  # Imports a random number generator
 from random import randint  # from random it would be imported to randint
-from tkinter.messagebox import QUESTION
+from tkinter.messagebox import QUESTION  # imports QUESTION from tkinter.messagebox
 
 
 # Constants
