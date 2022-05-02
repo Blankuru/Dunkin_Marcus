@@ -315,7 +315,7 @@ def print_order(del_pick):  # creates function
     if del_pick == "Delivery":  # if del_pick is delivery
         if len(order_list) >= 5:  # if length of order list is >= 5
             # prints order will be free of delivery charge
-            print ("Your order will be free of delivery charge")
+            print ("You ordered over 5 items. Delivery is free!")
         elif len(order_list) <= 5:  # if length of order list is <= 5
             # prints additional delivery charge of $9.00
             print ("There is an additional $9.00 delivery charge")
