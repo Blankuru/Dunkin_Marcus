@@ -56,6 +56,7 @@ def check_string(question):  # Function for inputs that requires letters only
         x = response.isalpha()  # Only accepts letters
         if x is False:  # If x is false which means that the input are numbers
             print ("Input must only contain letters")  # Prints error message
+            print ()  # prints blank line
         else:
             # If input are letters, it returns to response with capitilazation
             return response.title()
@@ -96,6 +97,7 @@ def check_phone(question, PH_LOW, PH_HIGH):
             else:  # If input is below 7 or above 10 numbers
                 # Prints message
                 print ("NZ phone numbers have between 7 and 10 digits")
+                print ()  # prints blank line
         except ValueError:  # If input is blank or letters
             print ("That is not a valid phone number")  # Prints message
             print ()  # prints blank line
